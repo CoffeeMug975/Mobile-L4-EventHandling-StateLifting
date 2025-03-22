@@ -1,20 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import ToDoForm from './ToDoForm';
+import { useState } from 'react';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+	const [tasks, setTasks] = useState<string[]>([
+		'Do Laundry',
+		'Go to Gym',
+		'Walk Dog',
+	])
+
+	const addTask = (task: string) => {
+		setTasks([...tasks, task]);
+	};
+
+	return (
+		<View style={styles.container}>
+			<ToDoForm addTask={addTask} />
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+	container: {
+		flex: 1,
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
 });

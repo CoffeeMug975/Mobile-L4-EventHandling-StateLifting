@@ -18,3 +18,21 @@ export default function ToDoForm({ addTask }) {
     </View>
   );
 }
+
+
+const styles = StyleSheet.create({
+	formContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    margin: 10,
+  },
+  input: {
+    flex: 1,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    padding: 10,
+    marginRight: 10,
+    borderRadius: 5,
+  },
+
+});
